@@ -11,6 +11,7 @@
     z-index: 20;
     backdrop-filter: blur(15px);
     flex-direction: column;
+    padding:10px;
 }
 
 .modal-content {
@@ -22,11 +23,18 @@
     text-align: center;
     position: relative;
     margin: 20px;
+    max-height: 580px;
+}
+
+.gif-container{
+    max-height:290px;
 }
 
 .modal-img{
-    height: 250px;
-    margin: 20px;
+    width: 100%;
+    aspect-ratio: 1.2 / 1;
+    object-fit: contain;
+    padding: 20px;
     image-rendering: pixelated;
 }
 
@@ -64,21 +72,37 @@
 }
 
 .statbar-container span {
-    width: 84px;
-    text-align: right;
+    width: 107px;
+    text-align: center;
     margin-right: 10px;
     font-size: 20px;
+    font-weight: 600;
+    background: #fff;
+    padding:5px;
 }
 
-.stats progress{
+.custom-progress-bar{
     width: calc(100% - 84px);
-    height:20px;
-}
-
-.stats progress::-webkit-progress-bar{
+    height:24px;
     background:#111;
 }
 
-.stats progress::-webkit-progress-value {
+.custom-progress-bar-fill {
     background:#fff;
+    color: #000;
+    font-size: 12px;
+    height:100%;
+}
+
+@media (max-width: 440px) {
+    img.type-icon {
+        width: 28px;
+        height: 28px;
+    }
+    h3{
+        font-size:20px;
+    }
+    .statbar-container span{
+        font-size: 16px;
+    }
 }

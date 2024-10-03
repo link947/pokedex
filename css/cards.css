@@ -1,14 +1,13 @@
 .pokemon-grid {
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 1440px;
+    display: grid;
     gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
     padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
 }
 
 .pokemon-card {
-    flex: 1 0 18%;
     background-color: #f5f5f5;
     padding: 10px;
     border-radius: 10px;
@@ -19,8 +18,9 @@
 }
 
 .pokemon-card img {
-    height: 250px;
-    margin-bottom: 10px;
+    max-height: 250px;
+    width:100%;
+    object-fit: contain;
     image-rendering: pixelated;
 }
 
@@ -44,23 +44,53 @@ h3 {
     justify-content: space-between;
     align-items: center;
     background: #fff;
+    padding:10px;
 }
 
 img.type-icon {
     width: 50px;
     height: 50px;
-    margin:10px;
 }
 
-.id-number{
-    display:flex;
+.id-number {
+    display: flex;
     justify-content: flex-end;
-    margin:10px;
+    margin: 10px;
 }
 
-.id-number p{
-    background:#fff;
-    padding:5px;
+.id-number p {
+    background: #fff;
+    padding: 5px;
     font-weight: 600;
-    margin:0;
+    margin: 0;
+}
+
+@media (max-width: 1400px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1095px) {
+    .pokemon-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 750px) {
+    .pokemon-grid {
+        grid-template-columns: 100%;
+    }
+}
+
+@media (max-width: 440px) {
+    .id-number {
+        margin: 10px 14px;
+    }
+    .pokemon-card{
+        padding: 10px 6px;
+    }
+    .pokemon-grid {
+        padding: 20px 10px;
+    }
 }

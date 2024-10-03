@@ -71,19 +71,30 @@ searchInput.addEventListener('input', () => {
 function renderSearchedCards(filteredPokemon) {
     pokemonContainer.innerHTML = '';
     for (let i = 0; i < filteredPokemon.length; i++) {
-        renderPokemonCard(filteredPokemon[i]);
+        renderPokemonCard(filteredPokemon[i], filteredPokemon[i].id - 1);
     }
 }
 
 function animateProgressBar(statValue, elementId) {
     let currentValue = 0;
-    const progressBar = document.getElementById(elementId);
+    const progressBarFill = document.getElementById(elementId);
+    progressBarFill.style.width = '0%';
     const interval = setInterval(() => {
         if (currentValue >= statValue) {
             clearInterval(interval);
         } else {
             currentValue++;
-            progressBar.value = currentValue;
+            const percentage = (currentValue / 255) * 100;
+            progressBarFill.style.width = `${percentage}%`;
         }
     }, 10);
+}
+
+function updateProgressBars(pokemon) {
+    const hpValue = pokemon.stats.hp;
+    const attackValue = pokemon.stats.attack;
+    const defenseValue = pokemon.stats.defense;
+    animateProgressBar(hpValue, 'hp-bar');
+    animateProgressBar(attackValue, 'attack-bar');
+    animateProgressBar(defenseValue, 'defense-bar');
 }

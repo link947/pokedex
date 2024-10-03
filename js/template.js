@@ -1,6 +1,5 @@
 function renderPokemonCard(pokemon, index) {
     const typeClass = pokemon.types[0];
-    
     pokemonContainer.innerHTML += /*HTML*/`
     <div class="pokemon-card pixel-corners type-${typeClass}" onclick="openModal(${index})">
         <div class="id-number">
@@ -19,9 +18,24 @@ function renderModalContent(pokemon) {
         <img class="modal-img" src="${gifImage}" alt="${pokemon.name}">
         ${renderTypeIcons(pokemon)}
         <div class="stats">
-            <div class="statbar-container"><span>HP: </span><progress class="pixel-corners-2" id="hp-bar" value="0" max="255"></progress></div>
-            <div class="statbar-container"><span>Attack: </span><progress class="pixel-corners-2" id="attack-bar" value="0" max="255"></progress></div>
-            <div class="statbar-container"><span>Defense: </span><progress class="pixel-corners-2" id="defense-bar" value="0" max="255"></progress></div>
+            <div class="statbar-container">
+                <span class="pixel-corners-2">HP</span>
+                <div class="custom-progress-bar pixel-corners-2">
+                    <div id="hp-bar" class="custom-progress-bar-fill" style="width: 0;"><span></span></div>
+                </div>
+            </div>
+            <div class="statbar-container">
+                <span class="pixel-corners-2">Attack</span>
+                <div class="custom-progress-bar pixel-corners-2">
+                    <div id="attack-bar" class="custom-progress-bar-fill" style="width: 0;"></div>
+                </div>
+            </div>
+            <div class="statbar-container">
+                <span class="pixel-corners-2">Defense</span>
+                <div class="custom-progress-bar pixel-corners-2">
+                    <div id="defense-bar" class="custom-progress-bar-fill" style="width: 0;"></div>
+                </div>
+            </div>
         </div>
     `;
 }
@@ -29,11 +43,9 @@ function renderModalContent(pokemon) {
 function renderTypeIcons(pokemon) {
     const typeOneIcon = getTypeIcon(pokemon.types[0]);
     let typeTwoIcon = getTypeIcon('default');
-    
     if (pokemon.types[1]) {
         typeTwoIcon = getTypeIcon(pokemon.types[1]);
     }
-
     return /*HTML*/`
         <div class="pokemon-types pixel-corners">
             <img class="type-icon" src="${typeOneIcon}">
