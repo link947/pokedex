@@ -9,12 +9,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/pixelcorners.css">
     <link rel="stylesheet" href="css/cards.css">  
     <link rel="stylesheet" href="css/loading.css">
     <link rel="stylesheet" href="css/modal.css">
     <link rel="stylesheet" href="css/type-color.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/pixelcorners.css">
+    
     <script src="js/template.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/iconMap.js"></script>
@@ -44,12 +45,12 @@
         <div class="texture"></div>
         <div id="modal-content" class="modal-content pixel-corners">
             <div class="texture"></div>
-            <span id="close-modal" class="close-btn" onclick="closeModal()">&times;</span>
+            <span id="close-modal" class="close-btn pixel-corners-2" onclick="closeModal()"><img src="assets/icons/x-icon.png" alt=""></span>
             <div id="modal-info" class="modal-info"></div>
         </div>
         <div class="navigation">
-            <button id="prev-btn" class="nav-btn pixel-corners-2" onclick="prevPokemon()">Previous</button>
-            <button id="next-btn" class="nav-btn pixel-corners-2" onclick="nextPokemon()">Next</button>
+            <button id="prev-btn" class="nav-btn pixel-corners-2" onclick="prevPokemon()"><img src="assets/icons/arrow-left.png" alt=""></button>
+            <button id="next-btn" class="nav-btn pixel-corners-2" onclick="nextPokemon()"><img src="assets/icons/arrow-right.png" alt=""></button>
         </div>
     </div>
 

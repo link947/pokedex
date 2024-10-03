@@ -55,10 +55,12 @@ img.type-icon {
 .id-number{
     display:flex;
     justify-content: flex-end;
+    margin:10px;
 }
 
 .id-number p{
     background:#fff;
     padding:5px;
     font-weight: 600;
+    margin:0;
 }
