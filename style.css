@@ -1,0 +1,98 @@
+* {
+    font-family: "Pixelify Sans", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: url("assets/img/bg-tile.png");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+}
+
+.logo {
+    padding-top: 24px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.header-border {
+    width: 100%;
+    height: 64px;
+    background: url("assets/img/header-border.png");
+}
+
+header h1 {
+
+    text-align: center;
+}
+
+.logo img {
+    max-height: 120px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input,
+button {
+    font-size: 20px;
+    padding: 20px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.modal-content button {
+    font-size: 16px;
+    padding: 10px;
+}
+
+footer {
+    color: #000;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("assets/img/header-bg.png");
+}
+
+.footer-border {
+    margin-top: 50px;
+    background: url("assets/img/footer-bg.png");
+    background-size: 64px;
+    height: 24px;
+    width: 100%;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+    opacity: .5;
+}
+
+.texture {
+    background: url(../assets/img/pixel-texture.png);
+    background-size: 200px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: .2;
+}

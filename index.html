@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokedex</title>
+    <link rel="icon" href="assets/img/pokeball.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/cards.css">  
+    <link rel="stylesheet" href="css/loading.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link rel="stylesheet" href="css/type-color.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/pixelcorners.css">
+    <script src="js/template.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/iconMap.js"></script>
+</head>
+
+<body onload="fetchPokemonData()">
+    <div id="loading-screen" class="loading-screen" style="display: none;">
+        <div class="spinner"></div><br>
+        <div>Loading Pokemon...</div>
+        <div class="texture"></div>
+    </div>
+
+    <header>
+        <div class="logo"><img src="assets/img/pm-logo.png" alt=""></div>
+        <h1>Welcome to the Pokedex</h1>
+        <div class="pixel-corners--wrapper">
+            <input class="pixel-corners" type="text" id="search-bar" placeholder="Search Pokémon..." maxlength="50">
+        </div>
+    </header>
+
+    <main>
+        <div id="pokemon-container" class="pokemon-grid"></div>
+        <button id="load-more-btn" class="load-more-btn pixel-corners" onclick="loadMore()">Load More Pokémon</button>
+    </main>
+
+    <div id="pokemon-modal" class="pokemon-modal" style="display: none;">
+        <div class="texture"></div>
+        <div id="modal-content" class="modal-content pixel-corners">
+            <div class="texture"></div>
+            <span id="close-modal" class="close-btn" onclick="closeModal()">&times;</span>
+            <div id="modal-info" class="modal-info"></div>
+        </div>
+        <div class="navigation">
+            <button id="prev-btn" class="nav-btn pixel-corners-2" onclick="prevPokemon()">Previous</button>
+            <button id="next-btn" class="nav-btn pixel-corners-2" onclick="nextPokemon()">Next</button>
+        </div>
+    </div>
+
+    <div class="footer-border"></div>
+    <footer>
+        <p>&copy; 2024 DA-Pokedex</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
