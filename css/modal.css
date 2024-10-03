@@ -24,7 +24,7 @@
     margin: 20px;
 }
 
-.modal-content img{
+.modal-img{
     height: 250px;
     margin: 20px;
     image-rendering: pixelated;
@@ -49,4 +49,36 @@
 .nav-btn img{
     height: 25px;
     vertical-align: top;
+}
+
+.stats{
+    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.statbar-container{
+    display:flex;
+    align-items: center;
+}
+
+.statbar-container span {
+    width: 84px;
+    text-align: right;
+    margin-right: 10px;
+    font-size: 20px;
+}
+
+.stats progress{
+    width: calc(100% - 84px);
+    height:20px;
+}
+
+.stats progress::-webkit-progress-bar{
+    background:#111;
+}
+
+.stats progress::-webkit-progress-value {
+    background:#fff;
 }

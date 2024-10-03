@@ -5,6 +5,9 @@ function openModal(index) {
     modalContent.className = `modal-content type-${typeClass} pixel-corners`;
     pokemonModal.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+    animateProgressBar(pokemon.stats.hp, 'hp-bar');
+    animateProgressBar(pokemon.stats.attack, 'attack-bar');
+    animateProgressBar(pokemon.stats.defense, 'defense-bar');
     currentIndex = index;
     updateNavigationButtons();    
 }

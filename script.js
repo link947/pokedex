@@ -20,7 +20,7 @@ async function fetchPokemonData() {
             const result = data.results[i];
             const pokemonDetails = await fetchPokemonDetails(result.url);
             currentPokemonList.push(pokemonDetails);
-            renderPokemonCard(pokemonDetails, i);
+            renderPokemonCard(pokemonDetails, i + offset);
         }
         offset += limit;
         hideLoading();
@@ -73,4 +73,17 @@ function renderSearchedCards(filteredPokemon) {
     for (let i = 0; i < filteredPokemon.length; i++) {
         renderPokemonCard(filteredPokemon[i]);
     }
+}
+
+function animateProgressBar(statValue, elementId) {
+    let currentValue = 0;
+    const progressBar = document.getElementById(elementId);
+    const interval = setInterval(() => {
+        if (currentValue >= statValue) {
+            clearInterval(interval);
+        } else {
+            currentValue++;
+            progressBar.value = currentValue;
+        }
+    }, 10);
 }
