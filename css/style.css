@@ -1,9 +1,14 @@
+@font-face {
+    font-family: "Pixelify Sans";
+    src: url("../assets/font/PixelifySans-VariableFont_wght.ttf");
+}
+
 * {
     box-sizing: border-box;
     font-family: "Pixelify Sans", sans-serif;
 }
 
-html{
+html {
     min-height: 100%;
 }
 
@@ -24,7 +29,7 @@ header {
     align-items: center;
     color: #fff;
     width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .logo {
@@ -37,8 +42,8 @@ header {
 .header-border {
     width: 100%;
     height: 64px;
-    background: url("assets/img/header-border.png");
-    background: url("assets/img/cloud.png")
+    background: url("../assets/img/header-border.png");
+    background: url("../assets/img/cloud.png")
 }
 
 header h1 {
@@ -71,6 +76,12 @@ button {
 
 button {
     cursor: pointer;
+    background: #fff;
+    transition: transform 0.3s ease;
+}
+
+button:hover, .sound-btn:hover, .close-btn:hover{
+    transform: scale(1.03);
 }
 
 .modal-content button {
@@ -85,26 +96,26 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("assets/img/header-bg.png");
+    background: url("../assets/img/header-bg.png");
 }
 
 .footer-border {
     margin-top: 50px;
-    background: url("assets/img/footer-bg.png");
+    background: url("../assets/img/footer-bg.png");
     background-size: 64px;
     height: 24px;
     width: 100%;
 }
 
-.footer-badge{
+.footer-badge {
     background: rgb(102, 67, 21);
-    padding:10px;
-    color:#fff;
-    margin:20px 0;
+    padding: 10px;
+    color: #fff;
+    margin: 20px 0;
 }
 
-.footer-badge p{
-    margin:0;
+.footer-badge p {
+    margin: 0;
 }
 
 button:disabled {
@@ -114,7 +125,7 @@ button:disabled {
 }
 
 .texture {
-    background: url("assets/img/pixel-texture.png");
+    background: url("../assets/img/pixel-texture.png");
     background-size: 200px;
     position: absolute;
     left: 0;
@@ -132,23 +143,23 @@ button:disabled {
     width: 100vw;
     height: 100%;
     overflow: hidden;
-    pointer-events: none; /* Avoids interaction with clouds */
+    pointer-events: none;
     z-index: -1;
-  }
-  
-  .cloud {
+}
+
+.cloud {
     position: absolute;
     opacity: 0.8;
     animation: moveClouds linear infinite;
     transform: translateX(120vw);
-  }
-  
-  /* Parallax scrolling */
-  @keyframes moveClouds {
+}
+
+@keyframes moveClouds {
     from {
-      transform: translateX(120vw);
+        transform: translateX(120vw);
     }
+
     to {
-      transform: translateX(-120vw);
+        transform: translateX(-120vw);
     }
-  }
+}

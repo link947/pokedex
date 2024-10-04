@@ -45,6 +45,7 @@
     background: #fff;
     padding:5px;
     margin:20px;
+    transition: transform 0.3s ease;
 }
 
 .sound-btn{
