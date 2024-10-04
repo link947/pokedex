@@ -19,8 +19,8 @@ function renderModalContent(pokemon) {
     <div class="pixel-corners-2 sound-btn" onclick="playCry('${pokemonCry}')"><img src="assets/icons/sound-on.png" alt=""></div>
         <img class="modal-img" src="${gifImage}" alt="${pokemon.name}">
         <div class="modal-nav-buttons">
-            <button id="prev-section-btn" class="pixel-corners-2" onclick="showStatsSection()" style="opacity: .5;" disabled><img src="assets/icons/arrow-left.png" alt=""></button>
-            <button id="next-section-btn" class="pixel-corners-2" onclick="showInfoSection()"><img src="assets/icons/arrow-right.png" alt=""></button>
+            <button id="prev-section-btn" class="pixel-corners-2" onclick="showStatsSection()" style="opacity: .5;" disabled><img src="assets/icons/stats-icon.png" alt=""></button>
+            <button id="next-section-btn" class="pixel-corners-2" onclick="showInfoSection()"><img src="assets/icons/i-icon.png" alt=""></button>
         </div>
         ${renderTypeIcons(pokemon)}
         <div class="modal-slider">
