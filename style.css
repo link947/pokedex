@@ -3,6 +3,10 @@
     font-family: "Pixelify Sans", sans-serif;
 }
 
+html{
+    min-height: 100%;
+}
+
 body {
     position: relative;
     margin: 0;
@@ -11,6 +15,7 @@ body {
     align-items: center;
     background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
     overflow-x: hidden !important;
+    min-height: 100vh;
 }
 
 header {
@@ -89,6 +94,17 @@ footer {
     background-size: 64px;
     height: 24px;
     width: 100%;
+}
+
+.footer-badge{
+    background: rgb(102, 67, 21);
+    padding:10px;
+    color:#fff;
+    margin:20px 0;
+}
+
+.footer-badge p{
+    margin:0;
 }
 
 button:disabled {

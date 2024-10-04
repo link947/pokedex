@@ -43,3 +43,50 @@ function updateNavigationButtons() {
         prevBtn.disabled = false;
     }
 }
+
+function playCry(soundUrl) {
+    const audio = new Audio(soundUrl);
+    audio.play();
+}
+
+function showInfoSection() {
+    document.getElementById('stats-section').style.display = 'none';
+    document.getElementById('info-section').style.display = 'block';
+    document.getElementById('next-section-btn').style.opacity = '.5';
+    document.getElementById('prev-section-btn').style.opacity = '1';
+    document.getElementById('next-section-btn').disabled = true;
+    document.getElementById('prev-section-btn').disabled = false;
+}
+
+function showStatsSection() {
+    document.getElementById('info-section').style.display = 'none';
+    document.getElementById('stats-section').style.display = 'block';
+    document.getElementById('prev-section-btn').style.opacity = '.5';
+    document.getElementById('next-section-btn').style.opacity = '1';
+    document.getElementById('prev-section-btn').disabled = true;
+    document.getElementById('next-section-btn').disabled = false;
+}
+
+function animateProgressBar(statValue, elementId) {
+    let currentValue = 0;
+    const progressBarFill = document.getElementById(elementId);
+    progressBarFill.style.width = '0%';
+    const interval = setInterval(() => {
+        if (currentValue >= statValue) {
+            clearInterval(interval);
+        } else {
+            currentValue++;
+            const percentage = (currentValue / 255) * 100;
+            progressBarFill.style.width = `${percentage}%`;
+        }
+    }, 10);
+}
+
+function updateProgressBars(pokemon) {
+    const hpValue = pokemon.stats.hp;
+    const attackValue = pokemon.stats.attack;
+    const defenseValue = pokemon.stats.defense;
+    animateProgressBar(hpValue, 'hp-bar');
+    animateProgressBar(attackValue, 'attack-bar');
+    animateProgressBar(defenseValue, 'defense-bar');
+}
