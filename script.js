@@ -12,6 +12,7 @@ let currentIndex = 0;
 
 async function fetchPokemonData() {
     try {
+        createClouds(10);
         showLoading();
         loadMoreBtn.disabled = true;
         const response = await fetch(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=${limit}`);
@@ -75,6 +76,11 @@ function renderSearchedCards(filteredPokemon) {
     }
 }
 
+function playCry(soundUrl) {
+    const audio = new Audio(soundUrl);
+    audio.play();
+}
+
 function animateProgressBar(statValue, elementId) {
     let currentValue = 0;
     const progressBarFill = document.getElementById(elementId);
@@ -98,3 +104,20 @@ function updateProgressBars(pokemon) {
     animateProgressBar(attackValue, 'attack-bar');
     animateProgressBar(defenseValue, 'defense-bar');
 }
+
+function createClouds(numClouds) {
+    const cloudContainer = document.getElementById('cloud-container');
+    const documentHeight = document.documentElement.scrollHeight;     
+    for (let i = 0; i < numClouds; i++) {
+      const cloud = document.createElement('img');
+      cloud.src = 'assets/img/cloud.png';
+      cloud.classList.add('cloud');
+      const size = Math.random() * 100 + 100;
+      const topPos = Math.random() * documentHeight * 2;
+      const speed = Math.random() * 50 + 20;
+      cloud.style.width = `${size}px`;
+      cloud.style.top = `${topPos}px`;
+      cloud.style.animationDuration = `${speed}s`;
+      cloudContainer.appendChild(cloud);
+    }
+  }

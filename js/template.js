@@ -14,7 +14,9 @@ function renderPokemonCard(pokemon, index) {
 
 function renderModalContent(pokemon) {
     const gifImage = `https://play.pokemonshowdown.com/sprites/xyani/${pokemon.name}.gif`;
+    const pokemonCry = `https://veekun.com/dex/media/pokemon/cries/${pokemon.id}.ogg`;
     return /*HTML*/`
+    <div class="pixel-corners-2 sound-btn" onclick="playCry('${pokemonCry}')"><img src="assets/icons/sound-on.png" alt=""></div>
         <img class="modal-img" src="${gifImage}" alt="${pokemon.name}">
         ${renderTypeIcons(pokemon)}
         <div class="stats">

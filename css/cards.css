@@ -1,5 +1,5 @@
 .pokemon-grid {
-    max-width: 1440px;
+    max-width: 1600px;
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(4, 1fr);

@@ -4,11 +4,13 @@
 }
 
 body {
+    position: relative;
     margin: 0;
-    background: url("assets/img/bg-tile.png");
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: linear-gradient(to top, #fbc2eb 0%, #a6c1ee 100%);
+    overflow-x: hidden !important;
 }
 
 header {
@@ -31,10 +33,12 @@ header {
     width: 100%;
     height: 64px;
     background: url("assets/img/header-border.png");
+    background: url("assets/img/cloud.png")
 }
 
 header h1 {
     text-align: center;
+    color: #000;
 }
 
 .logo img {
@@ -42,8 +46,8 @@ header h1 {
     max-width: 100%;
 }
 
-.input-container{
-    width:100%;
+.input-container {
+    width: 100%;
 }
 
 main {
@@ -93,7 +97,7 @@ button:disabled {
 }
 
 .texture {
-    background: url(../assets/img/pixel-texture.png);
+    background: url("assets/img/pixel-texture.png");
     background-size: 200px;
     position: absolute;
     left: 0;
@@ -103,3 +107,31 @@ button:disabled {
     z-index: -1;
     opacity: .2;
 }
+
+#cloud-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none; /* Avoids interaction with clouds */
+    z-index: -1;
+  }
+  
+  .cloud {
+    position: absolute;
+    opacity: 0.8;
+    animation: moveClouds linear infinite;
+    transform: translateX(120vw);
+  }
+  
+  /* Parallax scrolling */
+  @keyframes moveClouds {
+    from {
+      transform: translateX(120vw);
+    }
+    to {
+      transform: translateX(-120vw);
+    }
+  }
