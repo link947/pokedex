@@ -33,7 +33,8 @@ async function fetchPokemonData() {
 
 async function fetchPokemonDetails(url) {
     const response = await fetch(url);
-    const pokemon = await response.json();    
+    const pokemon = await response.json();
+    const flavorText = await fetchFlavorText(pokemon.id);
     return {
         id: pokemon.id,
         name: pokemon.name,
@@ -44,7 +45,20 @@ async function fetchPokemonDetails(url) {
             defense: pokemon.stats[2].base_stat,
         },
         image: pokemon.sprites.front_default,
+        flavorText: flavorText,
     };
+}
+
+async function fetchFlavorText(pokemonId) {
+    const speciesResponse = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${pokemonId}/`);
+    const speciesData = await speciesResponse.json();
+
+    if (speciesData.flavor_text_entries) {
+        const englishFlavorTextEntry = speciesData.flavor_text_entries.find(entry => entry.language.name === 'en');
+        return englishFlavorTextEntry.flavor_text.replace(/\f/g, ' ').trim();
+    } else {
+        return 'No information available';
+    }
 }
 
 function showLoading() {
@@ -79,6 +93,24 @@ function renderSearchedCards(filteredPokemon) {
 function playCry(soundUrl) {
     const audio = new Audio(soundUrl);
     audio.play();
+}
+
+function showInfoSection() {
+    document.getElementById('stats-section').style.display = 'none';
+    document.getElementById('info-section').style.display = 'block';
+    document.getElementById('next-section-btn').style.opacity = '.5';
+    document.getElementById('prev-section-btn').style.opacity = '1';
+    document.getElementById('next-section-btn').disabled = true;
+    document.getElementById('prev-section-btn').disabled = false;
+}
+
+function showStatsSection() {
+    document.getElementById('info-section').style.display = 'none';
+    document.getElementById('stats-section').style.display = 'block';
+    document.getElementById('prev-section-btn').style.opacity = '.5';
+    document.getElementById('next-section-btn').style.opacity = '1';
+    document.getElementById('prev-section-btn').disabled = true;
+    document.getElementById('next-section-btn').disabled = false;
 }
 
 function animateProgressBar(statValue, elementId) {
